@@ -3,12 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
+
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
 
 <p>Hello World</p>
 
+<table>
+{% for dict_item in peeps %}
+    <tr>
+        <td>{{ dict_item.EmpBasic_Name }}</td>
+        <td>{{ dict_item.LaborHed_DspClockInTime }}</td>
+    </tr>
+{% endfor %}
+</table>
 
 </body>
 </html>
