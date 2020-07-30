@@ -21,6 +21,12 @@ class EpicorSQL:
         r = cur.execute(query)
         return r
 
+    def sqlnice(self,query):
+        d = self.sql(query)
+        datazip = [dict(zip([column[0] for column in d.description],row)) for row in d.fetchall()]
+        z = [jItem(i) for i in datazip]
+        return z
+
 
 
 

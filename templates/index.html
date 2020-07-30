@@ -19,6 +19,19 @@
     </tr>
 {% endfor %}
 </table>
-
+<br>
+<br>
+<table>
+    <tr>
+        <th>Part Number</th>
+        <th>Part Description</th>
+    </tr>
+    {% for i in tbl %}
+    <tr>
+        <td>{{ i['Part Number'] }}</td>
+        <td>{{ i['partdescription'] }}</td>
+    </tr>
+    {% endfor %}
+</table>
 </body>
 </html>

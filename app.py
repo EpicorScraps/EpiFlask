@@ -41,16 +41,11 @@ def send_media(path):
 def main():
     x = selectedAPI.get('BaqSvc/act-currentusers(act)/')
 
-    y = ProductionSQL.sql('Select PartNum as \'Part Number\', partdescription from erp.part')
-
-    yr = y.fetchall()
-    cols = [column[0] for column in y.description]
-    print(cols)
-    print(yr)
+    y = ProductionSQL.sqlnice('Select PartNum as \'Part Number\', partdescription from erp.part')
 
     return render_template('index.html',
-                           #peeps=[jItem(i) for i in x.json()['value']]
-
+                           peeps=[jItem(i) for i in x.json()['value']],
+                           tbl=y
                            )
 
 
