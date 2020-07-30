@@ -2,6 +2,27 @@
 import requests
 from requests.auth import HTTPBasicAuth
 
+import pyodbc
+
+
+class EpicorSQL:
+    def __init__(self, sqlurl,user,password,db):
+        self.sqlurl = sqlurl
+        self.user = user
+        self.password = password
+        self.db = db
+
+    def connect(self):
+        cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER='+self.sqlurl+';DATABASE='+self.db+';UID='+self.user+';PWD='+self.password)
+        return cnxn.cursor()
+
+    def sql(self,query):
+        cur = self.connect()
+        r = cur.execute(query)
+        return r
+
+
+
 
 class EpicorAPI:
     def __init__(self, appserverurl, user, password, name):
